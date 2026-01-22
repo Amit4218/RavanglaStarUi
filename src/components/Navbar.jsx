@@ -32,7 +32,7 @@ function Navbar() {
             {/* Logo */}
             <NavLink to="/" className="shrink-0">
               <img
-                src="src/assets/logo.ico"
+                src="./logo.ico"
                 height={48}
                 width={48}
                 alt="Ravangla Star"
