@@ -3,7 +3,7 @@
 @import "tailwindcss";
 
 :root {
-  --attribute: #ded5af;
+  color: #ded5af;
 }
 
 .txt {

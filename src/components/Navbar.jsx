@@ -13,7 +13,12 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = ["Home", "Explore", "Tours", "Contact"];
+  const links = [
+    { page: "Home", link: "/" },
+    { page: "Services", link: "/services" },
+    { page: "Contact", link: "/contact" },
+    { page: "About us", link: "/about" },
+  ];
 
   return (
     <header className="sticky top-0 z-50">
@@ -36,10 +41,10 @@ function Navbar() {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
-              {links.map((link) => (
+              {links.map((link, idx) => (
                 <Link
-                  key={link}
-                  to="#"
+                  key={idx}
+                  to={link.link}
                   className="
                     relative text-gray-700 font-medium transition
                     after:absolute after:left-0 after:-bottom-1
@@ -48,7 +53,7 @@ function Navbar() {
                     hover:text-green-700 hover:after:w-full
                   "
                 >
-                  {link}
+                  {link.page}
                 </Link>
               ))}
             </div>
@@ -90,17 +95,17 @@ function Navbar() {
           }`}
         >
           <div className="bg-white px-6 py-4 shadow-inner space-y-3">
-            {links.map((link) => (
+            {links.map((link, idx) => (
               <Link
-                key={link}
-                to="#"
+                key={idx}
+                to={link.link}
                 onClick={() => setOpen(false)}
                 className="
                   block rounded-md px-3 py-2 text-gray-700 font-medium
                   hover:bg-green-50 hover:text-green-700 transition
                 "
               >
-                {link}
+                {link.page}
               </Link>
             ))}
           </div>

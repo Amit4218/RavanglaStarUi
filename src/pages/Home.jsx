@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const images = [
   "https://as2.ftcdn.net/v2/jpg/06/18/71/63/1000_F_618716344_aSmSjADcbsh8GcGKP1FM2jDtRUHGGpiM.jpg",
@@ -38,31 +39,83 @@ function Home() {
         {/* Content */}
         <div className="relative z-10 flex h-full items-center top-50 txt">
           <div className="mx-auto max-w-7xl px-6 text-center">
-            <h1 className="text-3xl font-bold leading-tight md:text-5xl">
+            <motion.h1
+              initial={{
+                opacity: 0,
+                y: 30,
+                scale: 0.98,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+              }}
+              transition={{
+                duration: 1.2,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="text-3xl font-bold leading-tight md:text-5xl"
+            >
               Explore The Mountains Like Never Before
-            </h1>
+            </motion.h1>
 
-            <p className="mt-6 max-w-2xl mx-auto text-lg txt font-semibold text-shadow-2xs">
+            <motion.p
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 1,
+                delay: 0.3,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="mt-6 max-w-2xl mx-auto text-lg txt font-semibold text-shadow-2xs"
+            >
               Discover breathtaking landscapes, curated tours, and unforgettable
               experiences in the heart of Sikkim.
-            </p>
+            </motion.p>
 
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row text-white">
-              <Link to="/Explore" className="rounded-md bg-green-600 px-10 py-3 font-semibold hover:bg-green-700 transition hover:text-xl">
-                Explore
-              </Link>
-
-              <Link
-                to={"https://wa.link/b8rqac"}
-                className="rounded-md text-black border border-white px-6 py-3 font-semibold bg-white transition hover:text-xl"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+            >
+              {/* Explore Button */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Contact Us
-              </Link>
-            </div>
+                <Link
+                  to="/Explore"
+                  className="rounded-md bg-green-600 px-10 py-3 font-semibold text-white transition-colors duration-300 hover:bg-green-700"
+                >
+                  Explore
+                </Link>
+              </motion.div>
+
+              {/* Contact Button */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  to="https://wa.link/b8rqac"
+                  target="_blank"
+                  className="rounded-md border border-white bg-white px-6 py-3 font-semibold text-black transition-colors duration-300 hover:bg-gray-100"
+                >
+                  Contact Us
+                </Link>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
-      <section className="min-h-screen bg-green-500 section-B"></section>
+      {/* <section className="min-h-screen bg-green-500 section-B"></section> */}
     </>
   );
 }
