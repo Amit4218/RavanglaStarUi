@@ -2,15 +2,11 @@
 
 @import "tailwindcss";
 
-:root {
-  color: #ded5af;
-}
-
 .txt {
   color: #024d27;
   font-family: "Poppins", monospace;
 }
 
-.w-txt {
-  color: var(--attribute);
+.txt-2 {
+  color: #ded5af;
 }

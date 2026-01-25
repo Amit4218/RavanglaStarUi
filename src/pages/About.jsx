@@ -20,10 +20,10 @@ function About() {
         className="relative bg-gray-900 txt font-bold"
         style={{
           backgroundImage:
-            "url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/cb/fb/23/hotel-ravongla-star.jpg?w=1000&h=-1&s=1')",
-            backgroundRepeat: "no-repeat",
-            width: "100%",
-            backgroundSize: "100%"
+            "url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/74/da/03/sunset.jpg?w=1000&h=-1&s=1')",
+          backgroundRepeat: "no-repeat",
+          width: "100%",
+          backgroundSize: "100%",
         }}
       >
         <div className="mx-auto max-w-7xl px-6 py-28 text-center">

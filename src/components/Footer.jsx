@@ -7,7 +7,12 @@ import { useState } from "react";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
-  const companyLinks = ["Home", "Services", "Contact", "About us"];
+  const companyLinks = [
+    { page: "Home", link: "/" },
+    { page: "Services", link: "/services" },
+    { page: "Contact", link: "/contact" },
+    { page: "About us", link: "/about" },
+  ];
   const socialLinks = [
     { icon: FaInstagram, label: "Instagram", href: "https://instagram.com" },
     { icon: FaFacebookF, label: "Facebook", href: "https://facebook.com" },
@@ -21,6 +26,11 @@ function Footer() {
     if (!Email) {
       return;
     }
+
+    if (!Email.includes("@")) {
+      return;
+    }
+    
     fetch("https://ravonglastar.com/subscribe", {
       method: "POST",
       body: {
@@ -36,7 +46,7 @@ function Footer() {
           <div className="space-y-4">
             <NavLink to="/" className="inline-flex items-center gap-3">
               <img
-                src="src/assets/logo.ico"
+                src="logo.ico"
                 height={48}
                 width={48}
                 alt="Ravangla Star Logo"
@@ -57,13 +67,13 @@ function Footer() {
             <h3 className="font-bold text-white">Quick Links</h3>
 
             <ul className="space-y-2 text-sm">
-              {companyLinks.map((link) => (
-                <li key={link}>
+              {companyLinks.map((link, idx) => (
+                <li key={idx}>
                   <Link
-                    to="#"
+                    to={link.link}
                     className="text-gray-400 transition hover:text-white hover:underline"
                   >
-                    {link}
+                    {link.page}
                   </Link>
                 </li>
               ))}

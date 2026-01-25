@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa6";
+import HomeServices from "../components/HomeService";
+import HomeAbout from "../components/HomeAbout";
 
 const images = [
   "https://as2.ftcdn.net/v2/jpg/06/18/71/63/1000_F_618716344_aSmSjADcbsh8GcGKP1FM2jDtRUHGGpiM.jpg",
@@ -22,7 +25,6 @@ function Home() {
   return (
     <>
       <section className="relative min-h-screen w-full overflow-hidden">
-        {/* Background Images */}
         {images.map((img, index) => (
           <div
             key={img}
@@ -33,10 +35,8 @@ function Home() {
           />
         ))}
 
-        {/* Overlay */}
         <div className="absolute inset-0" />
 
-        {/* Content */}
         <div className="relative z-10 flex h-full items-center top-50 txt">
           <div className="mx-auto max-w-7xl px-6 text-center">
             <motion.h1
@@ -85,20 +85,18 @@ function Home() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
             >
-              {/* Explore Button */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  to="/Explore"
-                  className="rounded-md bg-green-600 px-10 py-3 font-semibold text-white transition-colors duration-300 hover:bg-green-700"
+                  to="#"
+                  className="rounded-md bg-green-600 px-11 py-3.5 font-semibold text-white transition-colors duration-300 hover:bg-green-700"
                 >
                   Explore
                 </Link>
               </motion.div>
 
-              {/* Contact Button */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -106,16 +104,18 @@ function Home() {
                 <Link
                   to="https://wa.link/b8rqac"
                   target="_blank"
-                  className="rounded-md border border-white bg-white px-6 py-3 font-semibold text-black transition-colors duration-300 hover:bg-gray-100"
+                  className="inline-flex items-center gap-1 rounded-md border border-white bg-white px-4 py-3 font-semibold text-black transition-colors duration-300 hover:bg-gray-100"
                 >
                   Contact Us
+                  <FaWhatsapp size={18} className="text-green-600" />
                 </Link>
               </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
-      {/* <section className="min-h-screen bg-green-500 section-B"></section> */}
+      <HomeServices />
+      <HomeAbout />
     </>
   );
 }
